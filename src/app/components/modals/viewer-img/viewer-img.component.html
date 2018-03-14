@@ -1,0 +1,28 @@
+<form name="formModal" id="modalConfirm">
+
+  <div class="modal-header">
+    <h3 class="modal-title">
+    <i class="fa fa-camera" aria-hidden="true"></i> Viewing Screenshots for {{dataAlt}} ({{imgCurrentIndex + 1}}/{{data.img.length}})</h3>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body" id="modal-body">
+    <a (click)="imageChange(false)" class="switch valign">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a (click)="imageChange()" class="switch right v-align">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+    <img [src]="data.slug + data.img[imgCurrentIndex]" class="img-fluid" />
+
+  </div>
+
+  <div class="modal-footer" style="justify-content: space-between;">
+    <button type="button" class="btn btn-interact-outline float-left pull-left dismiss"
+    (click)="activeModal.dismiss('Close click')">Close</button>
+   
+  </div>
+
+</form>

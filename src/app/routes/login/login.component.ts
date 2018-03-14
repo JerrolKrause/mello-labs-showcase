@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   public formMain: FormGroup;
   public waiting: boolean;
   public errorApi: IErrorApi;
+  public error = false;
   public showErrorDetails = false;
   public sessionExpired: boolean;
   public loggedout: boolean;
@@ -62,7 +63,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     this.formMain = this.fb.group({ // <-- the parent FormGroup
       userName: [isLogin || 'juser', [Validators.required]],
-      password: ['password', [Validators.required]],
+      password: [null, [Validators.required]],
       remember: [hasLogin]
     });
 
@@ -86,24 +87,36 @@ export class LoginComponent implements OnInit, OnDestroy {
       window.localStorage.removeItem('rememberLogin');
     }
 
-    // Authenticate
-    this.authService.logIn(this.formMain.value).subscribe(
-      (success) => {
-        this.settings.userName = this.formMain.value.userName;
-        this.router.navigate([this.returnUrl]);
-        this.waiting = false;
-      },
-      (error) => {
-        error.errorMsg = 'Error logging in.';
-        if (error.statusText = 'Unauthorized') {
-          error.errorMsg = 'Invalid username or password, please try again.';
-          this.showErrorDetails = false;
-        }
+    console.log(this.formMain.value.password)
+    if (this.formMain.value.password == 'winning') {
+      this.settings.userName = this.formMain.value.userName;
+      this.settings.token = '123456';
+      this.router.navigate([this.returnUrl]);
+    } else {
+      this.error = true;
+      this.showErrorDetails = true;
+      this.loggedout = false;
+    }
+    this.waiting = false;
 
-        this.errorApi = error;
-        this.waiting = false;
-      }
-    );
+    //// Authenticate
+    //this.authService.logIn(this.formMain.value).subscribe(
+    //  (success) => {
+    //    this.settings.userName = this.formMain.value.userName;
+    //    this.router.navigate([this.returnUrl]);
+    //    this.waiting = false;
+    //  },
+    //  (error) => {
+    //    error.errorMsg = 'Error logging in.';
+    //    if (error.statusText = 'Unauthorized') {
+    //      error.errorMsg = 'Invalid username or password, please try again.';
+    //      this.showErrorDetails = false;
+    //    }
+
+    //    this.errorApi = error;
+    //    this.waiting = false;
+    //  }
+    //);
 
   } // end onSubmit
 

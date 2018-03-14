@@ -1,4 +1,8 @@
 /*styles for home content only*/
 #home{
-  
+  img{border-right: 1px solid rgba(0, 0, 0, 0.125);}
+  .img-hp{position:relative;min-height:270px;
+  .img-hp-bg{position:absolute;left:15px;top:0;right:15px;bottom:0;z-index:2;background-size:cover}
+  }
+  .btn-block{margin-top:0px;}
 }

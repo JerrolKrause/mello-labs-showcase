@@ -1,83 +1,42 @@
-<div id="home" class="container-fluid" *ngIf="{ state: usersState$ | async, users: users$ | async } as routeData">
+<div id="home" class="container">
+  <h1 class="title mb-3"><i class="fa fa-desktop" aria-hidden="true"></i> Project Dashboard</h1>
 
   <div class="card mb-3">
-    <div class="card-header p-2">
-      <button class="btn btn-icon btn-sm mr-2" (click)="usersRefresh()" [disabled]="routeData?.state?.loading">
-        <i class="fa fa-refresh"></i>
-      </button>
-      <!-- Filter datatable -->
-      <form class="form-inline mr-2 d-inline-block mr-2">
-        <label class="icon search" style="position:relative;">
-          <input class="form-control form-control-sm filterSearch" type="text" name="userSearchTerm" placeholder="Search users" [(ngModel)]="userSearchTerm" />
-          <a (click)="userSearchTerm = null" *ngIf="userSearchTerm" style="position:absolute;right: 10px;"><i class="fa fa-remove"></i></a>
-        </label>
-      </form>
+    <div class="card-header">
+      <div class="btn-group float-right">
+        <app-launch-modal classes="btn btn-secondary btn-sm btn-block"
+                          modal="ViewerImgComponent" size="xl" [data]="screenshots.loanDelegator" dataAlt="Loan Delegator" [isButton]="true">
+          <i class="fa fa-camera" aria-hidden="true"></i> View Screenshots
+        </app-launch-modal>
+        <a class="btn btn-primary btn-sm btn-block" href="https://jerrolkrause.github.io/mello-labs-skill-based-routing/#/" target="_blank"><i class="fa fa-expand" aria-hidden="true"></i> Launch Prototype</a>
+      </div>
+      <h2>Loan Delegator</h2>
     </div>
-
-  </div>
-
-  <div appFullScreen>
-    <api-state [state]="routeData?.state" [toaster]="true" [showSuccess]="false" *ngIf="routeData?.state">
+    <div class="card-block p-0">
       <div class="row">
-        <div class="col-12 col-lg-8 col-xl-9">
-
-          <div class="alert alert-warning icon" *ngIf="!routeData?.users?.src?.length">No users found</div>
-          <table class="table table-sm" *ngIf="(routeData?.users?.src | filter:userSearchTerm:'name' | debounce) as usersFiltered">
-            <thead>
-              <tr>
-                <th class="hidden-md-down">Username</th>
-                <th>Name</th>
-                <th class="hidden-md-down">Website</th>
-                <th class="hidden-md-down">Email</th>
-                <th>Phone</th>
-                <th class="hidden-md-down hidden-lg-down"></th>
-                <th class="hidden-md-down hidden-lg-down"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let user of usersFiltered">
-                <!-- Data from array is mapped, note the .src  -->
-                <td class="hidden-md-down">{{user.username}}</td>
-                <td>{{user.name}}</td>
-                <td class="hidden-md-down">{{user.website}}</td>
-                <td class="hidden-md-down">{{user.email}}</td>
-                <td>{{user.phone | phonenumber}}</td>
-                <td class="hidden-md-down hidden-lg-down"><a (click)="userEdit(user)">Edit</a></td>
-                <td class="hidden-md-down hidden-lg-down">
-                  <app-launch-modal modal="ConfirmationModalComponent" [isButton]="false" [persist]="true" size="lg" [data]="'Really delete '+ user.name +'?'" dataAlt="Delete User" (onSuccess)="userDelete(user)">
-                    Delete
-                  </app-launch-modal>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-12 col-lg-4 col-xl-3">
-          <div class="card">
-            <div class="card-block">
-              <h2 *ngIf="!isEditing">Add User</h2>
-              <h2 *ngIf="isEditing">Updating User</h2>
-              <form [formGroup]="formMain" novalidate (ngSubmit)="userSubmit()">
-                <field-component [frmGroup]="formMain" frmControl="username" label="Username" [labelColumns]="4"></field-component>
-                <field-component [frmGroup]="formMain" frmControl="name" label="Name" [labelColumns]="4"></field-component>
-                <field-component [frmGroup]="formMain" frmControl="website" label="Website" [labelColumns]="4"></field-component>
-                <field-component [frmGroup]="formMain" frmControl="email" label="Email" [labelColumns]="4"></field-component>
-                <field-component [frmGroup]="formMain" frmControl="phone" label="Phone" [labelColumns]="4"></field-component>
-                <button type="submit" class="btn btn-interact float-right" [disabled]="routeData.state.modifying || formMain.invalid" [ngClass]="{ 'btn-waiting' : routeData.state.modifying }">
-                  <ng-container *ngIf="!isEditing">
-                    <i class="fa fa-user-plus" aria-hidden="true"></i> Add User
-                  </ng-container>
-                  <ng-container *ngIf="isEditing">
-                    <i class="fa fa-user" aria-hidden="true"></i> Update User
-                  </ng-container>
-                </button>
-              </form>
-            </div>
+        <div class="col-12 col-md-6 img-hp">
+          <div class="img-hp-bg" style="background:url(assets/img/loan-delegator-md.jpg) no-repeat top left;">
           </div>
         </div>
+        <div class="col-12 col-md-6">
+          <div class="pt-3 pb-3 pr-3">
+            <p class="card-text">
+              Version 2.0 of Skills based routing. Loan Delegator is a combination of administration dashboard and a rules engine that will provide complex logic to assign loans to resources. This version will be applied to LD Wholesale and for Underwriters. The dashboard allows management of resources, pods, personal skills, state limitations, PTO (vacation time) and existing capacity in order to provide assignment.
+            </p>
+            <p class="card-text">
+              Once the assignment has occurred, the dashboard provides reporting and the ability to resolve unassigned loans, or review assignments and manually reassign. Finally the dashboard will allow an administrator to kick off a manual job, that would otherwise run on  a schedule.
+            </p>
 
+            <div class="progress">
+              <div class="progress-bar bg-success text-left pl-2" role="progressbar" style="width: 85%">Progress</div>
+            </div>
+
+          </div>
+        </div>
       </div>
-    </api-state>
+    </div>
   </div>
+
+
 </div>
 

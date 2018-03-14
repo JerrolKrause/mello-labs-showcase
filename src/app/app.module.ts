@@ -62,6 +62,7 @@ import {
 
 import { UIModalService, UIStoreService, UIStoreReducer } from '@ui';
 import { ApiService } from '@api';
+import { ViewerImgComponent } from './components/modals/viewer-img/viewer-img.component';
 
 // Application wide providers
 export const APP_COMPONENTS = [
@@ -105,6 +106,8 @@ export const APP_PROVIDERS = [
 
     // Directives
     FullScreenDirective,
+
+    ViewerImgComponent,
   ],
   imports: [
     // Angular
@@ -132,7 +135,7 @@ export const APP_PROVIDERS = [
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    ConfirmationModalComponent, LogoutModalComponent
+    ConfirmationModalComponent, LogoutModalComponent, ViewerImgComponent
   ]
 })
 export class AppModule { }
