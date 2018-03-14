@@ -28,6 +28,22 @@
     </p>
   </app-product-listing>
 
+  <!-- Ops Orc -->
+  <app-product-listing appName="Operations Orchestration - BPMS"
+                       progress="50"
+                       [screenshots]="screenshots.opsOrc">
+    <p>
+      Our in house Business Processing Management System is built to allow a complicated workflow to be broken apart into individual steps called “workstations”. The workstations are delivered via screen pop, or queue to resources with the available skillset to complete the task.
+    </p>
+      <p>
+      Eligibility engine and task assignment engines allow the tasks to be generated and distributed across the system. With a built in API integration for 3rd party services and Empower/EPS, the BPMS provides a high level of generic support for any type of task necessary.
+    </p>
+      <p>
+      Tasks themselves are broken apart into “circuits” which can be used to define a specific unit or collection of work. (for example.. Title or Escrow).
+    </p>
+
+  </app-product-listing>
+
   <!-- Document Portfolio -->
   <app-product-listing appName="Document Portfolio"
                        progress="100"
@@ -54,6 +70,24 @@
       <li>Import pages</li>
       <li>Export pages</li>
     </ul>
+  </app-product-listing>
+
+  <!-- Dialer Cisco Integration for Purchase Lead project (SalesForceSupportService) -->
+  <app-product-listing appName="Dialer Cisco Integration for Purchase Lead project (SalesForceSupportService)"
+                       progress="100"
+                       [screenshots]="screenshots.ciscoIntegration">
+    <p>
+      Scripter, when transferring leads, uses BI routing logic to determine Retail Loan Officer in a nearby Zip code. SFSS handles inserting lead info into Sales Force, sending non Sales Force LLOs an email with lead data, and also sends borrower welcome emails after looking up RLO images and branch info. This application has been in pilot with 80 people for several months.
+    </p>
+  </app-product-listing>
+
+  <!-- Cisco Retail Agent Availability -->
+  <app-product-listing appName="Cisco Retail Agent Availability"
+                       progress="100"
+                       [screenshots]="screenshots.agentAvailability">
+    <p>
+      Integrated the Dialer and Scripter with Cisco’s phone system. This utilized a custom availability app Jabber and Finesse for custom Retail Loan Officers. This allowed Retail Loan Officers to toggle their availability to take warm transfer leads for purchase loans. This was all set up and demoed to Dom and Norm. This project was put on hold due to licensing costs.
+    </p>
   </app-product-listing>
 
   <!-- Document Split Utility -->

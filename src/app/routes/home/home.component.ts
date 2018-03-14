@@ -23,6 +23,10 @@ export class HomeComponent implements OnInit, OnDestroy {
       slug: 'assets/img/loan-delegator/',
       img: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg']
     },
+    opsOrc: {
+      slug: 'assets/img/ops-orc/',
+      img: ['2.jpg', '3.jpg','1.jpg', '4.png', '5.jpg', '6.jpg', '7.jpg']
+    },
     docPortfolio: {
       slug: 'assets/img/doc-portfolio/',
       img: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg']
@@ -35,7 +39,15 @@ export class HomeComponent implements OnInit, OnDestroy {
       slug: 'assets/img/lead-marketplace/',
       img: ['1.png']
     },
+    agentAvailability: {
+      slug: 'assets/img/agent-availability/',
+      img: ['1.jpg']
+    },
+    ciscoIntegration: {
+      slug: 'assets/img/cisco-integration/'
+    },
   }
+
 
   /** Hold subs for unsub */
   private subs: Subscription[] = [];
