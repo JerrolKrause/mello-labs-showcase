@@ -12,7 +12,9 @@
       </a>
 
     </div>
+
     <h2>{{appName}}</h2>
+
   </div>
   <div class="card-block p-0">
     <div class="row">
@@ -28,7 +30,9 @@
         <div class="pt-3 pb-3 pr-3">
           <ng-content></ng-content>
           <div class="progress">
-            <div class="progress-bar bg-success text-left pl-2" role="progressbar" [ngStyle]="{'width': progress + '%'}">Progress</div>
+            <div class="progress-bar  text-left pl-2" role="progressbar" [ngStyle]="{'width': progress + '%'}"
+            [ngClass]="{ 'bg-success':progress >= 70,'bg-warning':progress > 0 && progress < 70 }"
+            >Progress</div>
           </div>
         </div>
       </div>
