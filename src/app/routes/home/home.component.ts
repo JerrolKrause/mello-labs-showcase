@@ -15,10 +15,26 @@ import { UIStoreService } from '@ui';
 export class HomeComponent implements OnInit, OnDestroy {
 
   public screenshots = {
+    titleWorkflow: {
+      slug: '/assets/img/title-workflow/',
+      img: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg']
+    },
     loanDelegator: {
       slug: '/assets/img/loan-delegator/',
       img: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg']
-    }
+    },
+    docPortfolio: {
+      slug: '/assets/img/doc-portfolio/',
+      img: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg']
+    },
+    docSplit: {
+      slug: '/assets/img/doc-split/',
+      img: ['1.jpg', '2.jpg', '3.jpg']
+    },
+    leadMarketplace: {
+      slug: '/assets/img/lead-marketplace/',
+      img: ['1.png']
+    },
   }
 
   /** Hold subs for unsub */

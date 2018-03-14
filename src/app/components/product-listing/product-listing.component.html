@@ -1,0 +1,38 @@
+<div class="card mb-3">
+  <div class="card-header">
+    <div class="btn-group float-right">
+
+      <app-launch-modal classes="btn btn-secondary btn-sm btn-block" *ngIf="screenshots"
+                        modal="ViewerImgComponent" size="xl" [data]="screenshots" [dataAlt]="appName" [isButton]="true">
+        <i class="fa fa-camera" aria-hidden="true"></i> View Screenshots
+      </app-launch-modal>
+
+      <a class="btn btn-primary btn-sm btn-block" [href]="linkPrototype" target="_blank" *ngIf="linkPrototype">
+        <i class="fa fa-expand" aria-hidden="true"></i> Launch Prototype
+      </a>
+
+    </div>
+    <h2>{{appName}}</h2>
+  </div>
+  <div class="card-block p-0">
+    <div class="row">
+
+      <div class="col-12 col-md-6 img-hp">
+        <app-launch-modal *ngIf="screenshots"
+                          modal="ViewerImgComponent" size="xl" [data]="screenshots" [dataAlt]="appName" [isButton]="false">
+          <div class="img-hp-bg" [ngStyle]="{'background':'url(' + screenshots.slug + 'md.jpg) no-repeat top left'}"></div>
+        </app-launch-modal>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <div class="pt-3 pb-3 pr-3">
+          <ng-content></ng-content>
+          <div class="progress">
+            <div class="progress-bar bg-success text-left pl-2" role="progressbar" [ngStyle]="{'width': progress + '%'}">Progress</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

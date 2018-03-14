@@ -63,6 +63,7 @@ import {
 import { UIModalService, UIStoreService, UIStoreReducer } from '@ui';
 import { ApiService } from '@api';
 import { ViewerImgComponent } from './components/modals/viewer-img/viewer-img.component';
+import { ProductListingComponent } from './components/product-listing/product-listing.component';
 
 // Application wide providers
 export const APP_COMPONENTS = [
@@ -108,6 +109,8 @@ export const APP_PROVIDERS = [
     FullScreenDirective,
 
     ViewerImgComponent,
+
+    ProductListingComponent,
   ],
   imports: [
     // Angular

@@ -1,42 +1,84 @@
 <div id="home" class="container">
   <h1 class="title mb-3"><i class="fa fa-desktop" aria-hidden="true"></i> Project Dashboard</h1>
 
-  <div class="card mb-3">
-    <div class="card-header">
-      <div class="btn-group float-right">
-        <app-launch-modal classes="btn btn-secondary btn-sm btn-block"
-                          modal="ViewerImgComponent" size="xl" [data]="screenshots.loanDelegator" dataAlt="Loan Delegator" [isButton]="true">
-          <i class="fa fa-camera" aria-hidden="true"></i> View Screenshots
-        </app-launch-modal>
-        <a class="btn btn-primary btn-sm btn-block" href="https://jerrolkrause.github.io/mello-labs-skill-based-routing/#/" target="_blank"><i class="fa fa-expand" aria-hidden="true"></i> Launch Prototype</a>
-      </div>
-      <h2>Loan Delegator</h2>
-    </div>
-    <div class="card-block p-0">
-      <div class="row">
-        <div class="col-12 col-md-6 img-hp">
-          <div class="img-hp-bg" style="background:url(assets/img/loan-delegator-md.jpg) no-repeat top left;">
-          </div>
-        </div>
-        <div class="col-12 col-md-6">
-          <div class="pt-3 pb-3 pr-3">
-            <p class="card-text">
-              Version 2.0 of Skills based routing. Loan Delegator is a combination of administration dashboard and a rules engine that will provide complex logic to assign loans to resources. This version will be applied to LD Wholesale and for Underwriters. The dashboard allows management of resources, pods, personal skills, state limitations, PTO (vacation time) and existing capacity in order to provide assignment.
-            </p>
-            <p class="card-text">
-              Once the assignment has occurred, the dashboard provides reporting and the ability to resolve unassigned loans, or review assignments and manually reassign. Finally the dashboard will allow an administrator to kick off a manual job, that would otherwise run on  a schedule.
-            </p>
+  <!-- Title Workflow -->
+  <app-product-listing appName="Title Workflow"
+                       linkPrototype="https://jerrolkrause.github.io/mello-labs-title/#/"
+                       progress="30"
+                       [screenshots]="screenshots.titleWorkflow">
+    <p>
+      Taking data from an automated OCR process and comparing it to the existing LOS data, the Title Workflow is a workstation that proto-types the ability for processing/UW to have a one stop place to handle all of the title workflow needs.  The application will provide the users with the ability to preview documents associated with title research, OCR data side by side with Empower data, and the ability to send updates directly to Empower.
+    </p>
+    <p>
+      A dashboard features outstanding loans to be worked on, and gives flags around complete, data missing, data miss-match for each data section giving a very high level overview of the loan status.  Loans being worked will indicate locked state, allow for document final stamping, and audit log to ensure change tracking.
+    </p>
+  </app-product-listing>
 
-            <div class="progress">
-              <div class="progress-bar bg-success text-left pl-2" role="progressbar" style="width: 85%">Progress</div>
-            </div>
 
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Loan Delegator -->
+  <app-product-listing appName="Loan Delegator"
+                       linkPrototype="https://jerrolkrause.github.io/mello-labs-skill-based-routing/#/"
+                       progress="85"
+                       [screenshots]="screenshots.loanDelegator">
+    <p>
+      Version 2.0 of Skills based routing. Loan Delegator is a combination of administration dashboard and a rules engine that will provide complex logic to assign loans to resources. This version will be applied to LD Wholesale and for Underwriters. The dashboard allows management of resources, pods, personal skills, state limitations, PTO (vacation time) and existing capacity in order to provide assignment.
+    </p>
+    <p>
+      Once the assignment has occurred, the dashboard provides reporting and the ability to resolve unassigned loans, or review assignments and manually reassign. Finally the dashboard will allow an administrator to kick off a manual job, that would otherwise run on  a schedule.
+    </p>
+  </app-product-listing>
 
+  <!-- Document Portfolio -->
+  <app-product-listing appName="Document Portfolio"
+                       progress="100"
+                       [screenshots]="screenshots.docPortfolio">
+    <p>
+      The web based document management system that replaces the legacy M4Docs win form app.  Document Portfolio offers a rich UI integration and includes many of the popular features enjoyed today in M4Docs.
+    </p>
+    <ul>
+      <li>Stacking order</li>
+      <li>Mark for review/final stamp</li>
+      <li>Trash bin</li>
+      <li>Rotate, split, merge, exclude pages</li>
+      <li>Download / Preview</li>
+    </ul>
+    <p>
+      The Document portfolio also offers an extensive “add document” workflow that can allow users to drag/drop from MS Outlook or their desktops into “document loading zones” which will launch custom workflows based on the zone used.
+    </p>
+    <p>
+      Upcoming features include:
+    </p>
+    <ul>
+      <li>Document Annotation</li>
+      <li>Watermark Esign (for underwriters)</li>
+      <li>Import pages</li>
+      <li>Export pages</li>
+    </ul>
+  </app-product-listing>
+
+  <!-- Document Split Utility -->
+  <app-product-listing appName="Document Split Utility"
+                       progress="20"
+                       [screenshots]="screenshots.docSplit">
+    <p>
+      The DSU is used for bulk splitting documents. Currently, DSU is inside M4Docs in Empower, but is being re-worked on a brand new web based application. The new DSU will offer advanced functionality around preview of pages in existing rules, and the ability to right click and insert pages into an already existing rule.  Features include:
+    </p>
+    <ul>
+      <li>Split screen for rules vs target document</li>
+      <li>Custom hotkeys for quick add</li>
+      <li>Rules support all existing functionality (side, rotate, condition linking, notes, loan number etc)</li>
+      <li>Rule validation and previous rule storage</li>
+    </ul>
+  </app-product-listing>
+
+  <!-- Lead Marketplace -->
+  <app-product-listing appName="Lead Marketplace"
+                       progress="1"
+                       [screenshots]="screenshots.leadMarketplace">
+    <p>
+      This is still a very early design. The process here is to allow for a loan officer to pre-pay (subscription based) for leads that would be delivered daily to the users CRM pipeline. These leads would be exclusive to the loan officer and would not be redistributed or dialed by the contact center.  Prototype images here show a possible workflow for loan officer experience of signup and subscription.
+    </p>
+  </app-product-listing>
 
 </div>
 
